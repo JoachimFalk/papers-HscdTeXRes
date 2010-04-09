@@ -1,0 +1,14 @@
+Revision: HscdTeXRes--mainline--0.2--patch-7
+Archive: joachim.falk@gmx.de--2005-common-stuff
+Creator: Joachim Falk <falk@cs.fau.de>
+Date: Fri Jan 20 14:31:24 CET 2006
+Standard-date: 2006-01-20 13:31:24 GMT
+Modified-files: format-da.tex format-industry.tex
+    format-report.tex format-sa.tex
+New-patches: joachim.falk@gmx.de--2005-common-stuff/HscdTeXRes--mainline--0.2--patch-7
+Summary: 
+ * Added amsmath to all format-xxx.tex files
+Keywords: 
+
+
+

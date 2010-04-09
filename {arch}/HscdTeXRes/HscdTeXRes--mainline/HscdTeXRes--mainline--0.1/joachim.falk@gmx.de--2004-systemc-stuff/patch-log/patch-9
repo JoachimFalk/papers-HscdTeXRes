@@ -1,0 +1,26 @@
+Revision: HscdTeXRes--mainline--0.1--patch-9
+Archive: joachim.falk@gmx.de--2004-systemc-stuff
+Creator: Joachim Falk <falk@cs.fau.de>
+Date: Tue Jan 11 12:35:45 CET 2005
+Standard-date: 2005-01-11 11:35:45 GMT
+Modified-files: .arch-ids/=id .arch-ids/ES_LESSON.tex.id
+    .arch-ids/Rules-TeX.mk.id .arch-ids/codesign.pdf.id
+    .arch-ids/fau.pdf.id .arch-ids/format.tex.id
+    ES_LESSON.tex Rules-TeX.mk codesign.pdf fau.pdf format.tex
+    {arch}/.arch-project-tree {arch}/=tagging-method
+    {arch}/HscdTeXRes/HscdTeXRes--mainline/HscdTeXRes--mainline--0.1/joachim.falk@gmx.de--2004-systemc-stuff/patch-log/base-0
+    {arch}/HscdTeXRes/HscdTeXRes--mainline/HscdTeXRes--mainline--0.1/joachim.falk@gmx.de--2004-systemc-stuff/patch-log/patch-1
+    {arch}/HscdTeXRes/HscdTeXRes--mainline/HscdTeXRes--mainline--0.1/joachim.falk@gmx.de--2004-systemc-stuff/patch-log/patch-2
+    {arch}/HscdTeXRes/HscdTeXRes--mainline/HscdTeXRes--mainline--0.1/joachim.falk@gmx.de--2004-systemc-stuff/patch-log/patch-3
+    {arch}/HscdTeXRes/HscdTeXRes--mainline/HscdTeXRes--mainline--0.1/joachim.falk@gmx.de--2004-systemc-stuff/patch-log/patch-4
+    {arch}/HscdTeXRes/HscdTeXRes--mainline/HscdTeXRes--mainline--0.1/joachim.falk@gmx.de--2004-systemc-stuff/patch-log/patch-5
+    {arch}/HscdTeXRes/HscdTeXRes--mainline/HscdTeXRes--mainline--0.1/joachim.falk@gmx.de--2004-systemc-stuff/patch-log/patch-6
+Modified-directories: .arch-ids {arch} {arch}/HscdTeXRes
+    {arch}/HscdTeXRes/HscdTeXRes--mainline
+    {arch}/HscdTeXRes/HscdTeXRes--mainline/HscdTeXRes--mainline--0.1
+    {arch}/HscdTeXRes/HscdTeXRes--mainline/HscdTeXRes--mainline--0.1/joachim.falk@gmx.de--2004-systemc-stuff
+    {arch}/HscdTeXRes/HscdTeXRes--mainline/HscdTeXRes--mainline--0.1/joachim.falk@gmx.de--2004-systemc-stuff/patch-log
+New-patches: joachim.falk@gmx.de--2004-systemc-stuff/HscdTeXRes--mainline--0.1--patch-9
+Summary: Support \includegraphics without graphic extension. Default to pdf
+Keywords: 
+

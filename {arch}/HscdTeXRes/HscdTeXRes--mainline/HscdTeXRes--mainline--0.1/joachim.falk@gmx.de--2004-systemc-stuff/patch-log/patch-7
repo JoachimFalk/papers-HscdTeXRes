@@ -1,0 +1,10 @@
+Revision: HscdTeXRes--mainline--0.1--patch-7
+Archive: joachim.falk@gmx.de--2004-systemc-stuff
+Creator: Joachim Falk <falk@cs.fau.de>
+Date: Mon Jan 10 16:11:19 CET 2005
+Standard-date: 2005-01-10 15:11:19 GMT
+Modified-files: format.tex
+New-patches: joachim.falk@gmx.de--2004-systemc-stuff/HscdTeXRes--mainline--0.1--patch-7
+Summary: Remove newtheorem definition, proof, and example put them into report.tex
+Keywords: 
+

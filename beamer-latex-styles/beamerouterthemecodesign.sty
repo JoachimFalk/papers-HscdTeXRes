@@ -1,0 +1,72 @@
+\ProvidesPackage{beamerouterthemecodesign}[2009/24/02 v0.1 CoDesign Beamer Template]
+
+% Copyright (C) 2009 Richard Membarth <richard.membarth@cs.fau.de>
+% 
+% This program is free software: you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either version 3 of the License, or
+% (at your option) any later version.
+% 
+% This program is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+% 
+% You should have received a copy of the GNU General Public License
+% along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+\defbeamertemplate*{footline}{codesign theme}{
+  \leavevmode
+  \begin{beamercolorbox}[ht=3ex,dp=.125ex,colsep=1.0pt]{upper separation line foot}
+    \begin{center}{\color{structure}\rule{\linewidth}{0.1mm}}\end{center}
+  \end{beamercolorbox}
+  \hbox{
+    \begin{beamercolorbox}[wd=.40\paperwidth,ht=4.25ex,dp=1ex,left,leftskip=32pt,rightskip=1pt]{normal text}%
+      \fontshape{it}\fontsize{5}{6}\selectfont
+      \insertshortuniversity\newline\insertshortauthor
+      \vskip 3.5ex
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[wd=.20\paperwidth,ht=4.25ex,dp=1ex,center,ignorebg]{normal text}
+      \pgfdeclareimage[height=7ex]{logo}{codesign}\hfill\pgfuseimage{logo}\hspace{.5ex}
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[wd=.40\paperwidth,ht=4.25ex,dp=1ex,right,ignorebg,leftskip=1pt plus1fill,rightskip=32pt]{normal text}
+      \hfill\insertframenumber{}
+      \vskip 2.0ex
+    \end{beamercolorbox}
+  }
+  \vskip 0pt
+}
+
+%\DeclareOptionBeamer{footline}{\csname beamer@theme@footline@#1\endcsname}
+%\ProcessOptionsBeamer
+
+
+%\mode<presentation>
+
+% Head
+%\def\beamer@theme@headline@empty{}
+%\def\beamer@theme@headline@title{
+  \defbeamertemplate*{headline}{codesign theme}
+  {
+    \begin{beamercolorbox}[colsep=1.0pt]{upper separation line head}
+    \end{beamercolorbox}
+    \ifnum\c@page=1
+      \begin{beamercolorbox}[wd=\paperwidth,ht=9.50ex,dp=1ex,left,leftskip=28pt,rightskip=1pt]{normal text}
+        \pgfdeclareimage[height=9ex]{logo}{codesign}\pgfuseimage{logo}\hspace{.5ex}
+      \end{beamercolorbox}
+    \else
+    \begin{beamercolorbox}[wd=\paperwidth,ht=9.50ex,dp=1ex,left,leftskip=28pt,rightskip=1pt]{normal text}
+      \fontsize{20}{24}\selectfont
+      \insertframetitle
+    \end{beamercolorbox}
+    \fi
+    \begin{beamercolorbox}[ht=2.0ex,dp=0ex]{lower separation line head}
+      \begin{center}{\color{structure}\rule{\linewidth}{0.1mm}}\\
+      {\color{structure}\rule{0.60\linewidth}{0.9mm}}\hspace{0.40\linewidth}\vspace{-2mm}\end{center}
+    \end{beamercolorbox}
+  }
+%\mode
+
+%<all>
+

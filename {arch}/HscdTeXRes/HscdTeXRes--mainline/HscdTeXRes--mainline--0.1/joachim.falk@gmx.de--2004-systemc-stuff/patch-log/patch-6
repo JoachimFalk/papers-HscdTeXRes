@@ -1,0 +1,12 @@
+Revision: HscdTeXRes--mainline--0.1--patch-6
+Archive: joachim.falk@gmx.de--2004-systemc-stuff
+Creator: Joachim Falk <falk@cs.fau.de>
+Date: Wed Jan  5 11:56:04 CET 2005
+Standard-date: 2005-01-05 10:56:04 GMT
+Modified-files: ES_LESSON.tex
+New-patches: joachim.falk@gmx.de--2004-systemc-stuff/HscdTeXRes--mainline--0.1--patch-6
+Summary: New texcommands \digsim, \filename, \command, \shellcommand in ES_LESSON.tex
+Keywords: 
+
+
+

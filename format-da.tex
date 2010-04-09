@@ -1,0 +1,46 @@
+\documentclass[a4paper, 12pt, BCOR2cm, headsepline, pointlessnumbers, bibtotoc, idxtotoc, american, english, german]{scrbook}
+
+\renewcommand*\chaptermarkformat{\thechapter. \quad}
+\renewcommand*\chapterformat{\thechapter. \ }
+
+\input{hscd-common.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% NEWCOMMAND \codesigntitle
+%%
+%% \hscdtitle{Title}{Author}{Matrikelnummer}{Betreuer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\hscdtitle}[4]{
+  \begin{titlepage}
+          \titlehead{
+          \hspace{-1cm}
+          \hbox to 17.0cm{   
+              \parbox[b]{65mm}{\vspace*{-40mm}\includegraphics[width=65mm]{fau}}
+              \hfill
+              \parbox{5.5cm}{\vspace*{-20mm}\centering\includegraphics{codesignlogo}\parbox{0mm}{}}
+              
+          }}
+         \title{{\parbox{0mm}{}\\[0.5cm]\Large \sffamily \bfseries{Diplomarbeit}}\\[4mm]
+               \huge{#1}}
+  \author{\Large von\\[3mm]
+          \Large {\bf #2}\\[2mm]
+          \large Matrikel-Nr.: #3\\[5mm]
+          \large Betreuung:\\ #4\\[10mm]
+          %\large Hardware-Software-Co-Design\\
+	      %\large Universit"at Erlangen-N"urnberg \\
+	      %\large Am Weichselgarten 3 \\
+	      %\large D-901058 Erlangen \\[5mm]
+          %\large{VORLÄUFIGE VERSION}\\[10mm]
+	  }
+  \date{\today}
+  \thispagestyle{empty}
+  \lowertitleback{Dieses Dokument wurde mit dem Textsatzsystem \LaTeXe  erstellt.}
+  \end{titlepage}   
+  \hypersetup{
+    pdftitle   = {#1},
+    pdfauthor  = {#2, Matrikel-Nr. #3},
+    pdfsubject = {Diplomarbeit betreut von #4}
+  }
+  \maketitle
+} 
+\makeindex

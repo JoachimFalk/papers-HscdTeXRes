@@ -1,0 +1,16 @@
+Revision: HscdTeXRes--mainline--0.2--patch-3
+Archive: joachim.falk@gmx.de--2005-common-stuff
+Creator: Joachim Falk <falk@cs.fau.de>
+Date: Tue Nov 29 14:32:19 CET 2005
+Standard-date: 2005-11-29 13:32:19 GMT
+New-files: .arch-ids/format-industry.tex.id
+    format-industry.tex
+Modified-files: ES_LESSON.tex format-da.tex
+    format-report.tex format-sa.tex
+New-patches: joachim.falk@gmx.de--2005-common-stuff/HscdTeXRes--mainline--0.2--patch-3
+Summary: 
+ * format-industry.tex für Industriestudien
+Keywords: 
+
+
+

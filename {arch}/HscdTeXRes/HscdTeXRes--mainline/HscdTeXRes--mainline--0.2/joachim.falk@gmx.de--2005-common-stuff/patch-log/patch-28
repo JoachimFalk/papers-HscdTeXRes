@@ -1,0 +1,13 @@
+Revision: HscdTeXRes--mainline--0.2--patch-28
+Archive: joachim.falk@gmx.de--2005-common-stuff
+Creator: Joachim Falk <falk@cs.fau.de>
+Date: Tue Jul 15 14:49:12 CEST 2008
+Standard-date: 2008-07-15 12:49:12 GMT
+Modified-files: Rules-TeX-PDF.mk Rules-TeX-PS.mk
+New-patches: joachim.falk@gmx.de--2005-common-stuff/HscdTeXRes--mainline--0.2--patch-28
+Summary: 
+ * Fixed latex/pdflatex rerun code until references stable!
+Keywords: 
+
+
+

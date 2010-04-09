@@ -1,0 +1,21 @@
+Revision: HscdTeXRes--mainline--0.2--patch-1
+Archive: joachim.falk@gmx.de--2005-common-stuff
+Creator: Joachim Falk <falk@cs.fau.de>
+Date: Tue Nov 29 13:43:39 CET 2005
+Standard-date: 2005-11-29 12:43:39 GMT
+New-files: .arch-ids/format-da.tex.id
+    .arch-ids/format-sa.tex.id format-da.tex format-sa.tex
+Renamed-files: .arch-ids/format.tex.id .arch-ids/format-report.tex.id
+    format.tex format-report.tex
+Modified-files: ES_LESSON.tex Rules-TeX.mk codesign.pdf
+    fau.pdf format-report.tex
+New-patches: joachim.falk@gmx.de--2005-common-stuff/HscdTeXRes--mainline--0.2--patch-1
+Summary: 
+ * format-da.tex hinzugefügt für Diplomarbeiten
+ * format-sa.tex hinzugefügt für Studienarbeiten
+ * format.tex => format-report.tex umbenannt zu
+   verwenden für reports, z.B. IBM Siemens
+Keywords: 
+
+
+

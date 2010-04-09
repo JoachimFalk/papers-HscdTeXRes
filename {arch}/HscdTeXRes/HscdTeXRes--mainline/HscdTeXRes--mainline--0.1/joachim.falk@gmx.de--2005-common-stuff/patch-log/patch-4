@@ -1,0 +1,36 @@
+Revision: HscdTeXRes--mainline--0.1--patch-4
+Archive: joachim.falk@gmx.de--2005-common-stuff
+Creator: Joachim Falk <falk@cs.fau.de>
+Date: Tue May  3 15:10:24 MEST 2005
+Standard-date: 2005-05-03 13:10:24 GMT
+Modified-files: .arch-ids/=id .arch-ids/ES_LESSON.tex.id
+    .arch-ids/Rules-TeX.mk.id .arch-ids/codesign.pdf.id
+    .arch-ids/fau.pdf.id .arch-ids/format.tex.id
+    {arch}/.arch-project-tree {arch}/=tagging-method
+    {arch}/HscdTeXRes/HscdTeXRes--mainline/HscdTeXRes--mainline--0.1/joachim.falk@gmx.de--2004-systemc-stuff/patch-log/base-0
+    {arch}/HscdTeXRes/HscdTeXRes--mainline/HscdTeXRes--mainline--0.1/joachim.falk@gmx.de--2004-systemc-stuff/patch-log/patch-1
+    {arch}/HscdTeXRes/HscdTeXRes--mainline/HscdTeXRes--mainline--0.1/joachim.falk@gmx.de--2004-systemc-stuff/patch-log/patch-10
+    {arch}/HscdTeXRes/HscdTeXRes--mainline/HscdTeXRes--mainline--0.1/joachim.falk@gmx.de--2004-systemc-stuff/patch-log/patch-11
+    {arch}/HscdTeXRes/HscdTeXRes--mainline/HscdTeXRes--mainline--0.1/joachim.falk@gmx.de--2004-systemc-stuff/patch-log/patch-13
+    {arch}/HscdTeXRes/HscdTeXRes--mainline/HscdTeXRes--mainline--0.1/joachim.falk@gmx.de--2004-systemc-stuff/patch-log/patch-14
+    {arch}/HscdTeXRes/HscdTeXRes--mainline/HscdTeXRes--mainline--0.1/joachim.falk@gmx.de--2004-systemc-stuff/patch-log/patch-15
+    {arch}/HscdTeXRes/HscdTeXRes--mainline/HscdTeXRes--mainline--0.1/joachim.falk@gmx.de--2004-systemc-stuff/patch-log/patch-2
+    {arch}/HscdTeXRes/HscdTeXRes--mainline/HscdTeXRes--mainline--0.1/joachim.falk@gmx.de--2004-systemc-stuff/patch-log/patch-3
+    {arch}/HscdTeXRes/HscdTeXRes--mainline/HscdTeXRes--mainline--0.1/joachim.falk@gmx.de--2004-systemc-stuff/patch-log/patch-4
+    {arch}/HscdTeXRes/HscdTeXRes--mainline/HscdTeXRes--mainline--0.1/joachim.falk@gmx.de--2004-systemc-stuff/patch-log/patch-5
+    {arch}/HscdTeXRes/HscdTeXRes--mainline/HscdTeXRes--mainline--0.1/joachim.falk@gmx.de--2004-systemc-stuff/patch-log/patch-6
+    {arch}/HscdTeXRes/HscdTeXRes--mainline/HscdTeXRes--mainline--0.1/joachim.falk@gmx.de--2004-systemc-stuff/patch-log/patch-7
+    {arch}/HscdTeXRes/HscdTeXRes--mainline/HscdTeXRes--mainline--0.1/joachim.falk@gmx.de--2004-systemc-stuff/patch-log/patch-8
+    {arch}/HscdTeXRes/HscdTeXRes--mainline/HscdTeXRes--mainline--0.1/joachim.falk@gmx.de--2004-systemc-stuff/patch-log/patch-9
+    {arch}/HscdTeXRes/HscdTeXRes--mainline/HscdTeXRes--mainline--0.1/joachim.falk@gmx.de--2005-common-stuff/patch-log/base-0
+Modified-directories: .arch-ids {arch} {arch}/HscdTeXRes
+    {arch}/HscdTeXRes/HscdTeXRes--mainline
+    {arch}/HscdTeXRes/HscdTeXRes--mainline/HscdTeXRes--mainline--0.1
+    {arch}/HscdTeXRes/HscdTeXRes--mainline/HscdTeXRes--mainline--0.1/joachim.falk@gmx.de--2004-systemc-stuff
+    {arch}/HscdTeXRes/HscdTeXRes--mainline/HscdTeXRes--mainline--0.1/joachim.falk@gmx.de--2004-systemc-stuff/patch-log
+    {arch}/HscdTeXRes/HscdTeXRes--mainline/HscdTeXRes--mainline--0.1/joachim.falk@gmx.de--2005-common-stuff
+    {arch}/HscdTeXRes/HscdTeXRes--mainline/HscdTeXRes--mainline--0.1/joachim.falk@gmx.de--2005-common-stuff/patch-log
+New-patches: joachim.falk@gmx.de--2005-common-stuff/HscdTeXRes--mainline--0.1--patch-4
+Summary: Update from Subversion
+Keywords: 
+

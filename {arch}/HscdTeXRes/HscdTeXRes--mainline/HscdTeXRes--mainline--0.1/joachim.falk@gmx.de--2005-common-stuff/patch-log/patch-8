@@ -1,0 +1,13 @@
+Revision: HscdTeXRes--mainline--0.1--patch-8
+Archive: joachim.falk@gmx.de--2005-common-stuff
+Creator: Joachim Falk <falk@cs.fau.de>
+Date: Tue Jul 12 01:08:15 CEST 2005
+Standard-date: 2005-07-11 23:08:15 GMT
+Modified-files: Rules-TeX.mk
+New-patches: joachim.falk@gmx.de--2005-common-stuff/HscdTeXRes--mainline--0.1--patch-8
+Summary: 
+ * Added support for .eps .ps graphic inclusion by autoconversion to pdf
+Keywords: 
+
+
+

@@ -1,0 +1,61 @@
+\newcommand{\graphicPostfix}{pdf}
+
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{array}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{float}
+%\usepackage{marvosym}
+%\usepackage{mathrsfs}
+\usepackage{amsmath}
+\usepackage{amssymb}
+%\usepackage{amsthm}
+\usepackage{theorem}
+\usepackage{makeidx}
+\usepackage{hyperref}
+\usepackage{babel}
+\usepackage{rotating}
+\usepackage{calc}
+% Times Helvetica Courier
+\usepackage{pslatex}
+\usepackage[scaled=.90]{helvet}
+\usepackage{courier}
+% The Postscript fonts do not have a bold symbol font.
+% Emulate \boldsymbol via the \pmb{} (poor man's bold) command.
+\renewcommand{\boldsymbol}[1]{\pmb{#1}}
+
+%\usepackage{verbatim}
+\usepackage{fancyvrb}
+% backward compatibility cruft for verbatim
+\newcommand{\verbatiminput}[1]{\VerbatimInput{#1}}
+
+% Use a small font for the verbatim environment
+\makeatletter  % makes '@' an ordinary character
+\renewcommand{\verbatim@font}{%
+  \ttfamily\small\catcode`\<=\active\catcode`\>=\active%
+}
+\makeatother   % makes '@' a special symbol again
+
+\hypersetup{
+  colorlinks = true,
+  linkcolor  = black,
+  anchorcolor= black,
+  citecolor  = black,
+  filecolor  = black,
+  menucolor  = black,
+  pagecolor  = black,
+  urlcolor   = black
+}
+
+%\floatstyle{ruled}
+%\floatname{algorithm}{\sffamily\bfseries Algorithm}
+%\newfloat{algorithm}{tbp}{lol}%[section]
+
+\newcommand{\remark}{\tiny® \normalsize}
+\newcommand{\trademark}{\tiny\texttrademark \normalsize}

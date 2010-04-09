@@ -1,0 +1,12 @@
+Revision: HscdTeXRes--mainline--0.1--patch-2
+Archive: joachim.falk@gmx.de--2005-common-stuff
+Creator: Joachim Falk <falk@cs.fau.de>
+Date: Thu Apr 28 15:26:30 CEST 2005
+Standard-date: 2005-04-28 13:26:30 GMT
+Modified-files: Rules-TeX.mk
+New-patches: joachim.falk@gmx.de--2005-common-stuff/HscdTeXRes--mainline--0.1--patch-2
+Summary: Fixed bug in posix sh shell syntax for bash in solaris
+Keywords: 
+
+
+

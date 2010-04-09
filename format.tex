@@ -1,0 +1,57 @@
+\documentclass[a4paper, 12pt, BCOR2cm, headsepline, pointlessnumbers, bibtotoc, idxtotoc, german, english, american]{scrartcl}
+
+\usepackage{times}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{float}
+%\usepackage{marvosym}
+\usepackage{amssymb}
+%\usepackage{mathrsfs}
+\usepackage{theorem}
+\usepackage{makeidx}
+\usepackage{hyperref}
+\usepackage{babel}
+\usepackage{longtable}
+\usepackage{a4,array,graphicx,tabularx,color,theorem,pslatex,epsfig}
+\usepackage{rotating}
+
+\newcommand{\remark}{\tiny® \normalsize}
+\newcommand{\trademark}{\tiny\texttrademark \normalsize}
+
+\heavyrulewidth=0.1em
+\floatstyle{ruled}
+\floatname{algorithm}{\sffamily\bfseries Algorithm}
+\newfloat{algorithm}{tbp}{lol}[section]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% NEWCOMMAND \hscdtitle
+%%
+%% \hscdtitle{Title}{Author}{Matrikennummer}{Betreuer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\hscdtitle}[3]{
+  \begin{titlepage}
+          \titlehead{
+          \quad
+          \hbox to 13.8cm{   
+              \parbox{57mm}{\scalebox{0.6}{\includegraphics{fau}}}
+              \hfill
+              \parbox{42mm}{\scalebox{0.15}{\includegraphics{codesign}}}
+          }}
+         \title{\Huge{#1}}
+               
+  \author{
+          \Large #2\\[4mm]
+          \Large Department of Computer Science 12\\
+          \Large Hardware-Software-Co-Design\\
+          \Large University of Erlangen-Nuremberg\\
+          \Large Am Weichselgarten 3\\
+          \Large D-91058 Erlangen, Germany \\[7mm]
+          \Large {\bf Co-Design-Report #3}\\[16mm]}
+  \date{\today}
+  \thispagestyle{empty}
+  \end{titlepage}   
+
+  \maketitle
+}
+
+\makeindex

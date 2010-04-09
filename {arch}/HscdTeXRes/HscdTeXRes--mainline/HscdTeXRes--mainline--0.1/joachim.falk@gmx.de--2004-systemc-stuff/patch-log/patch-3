@@ -1,0 +1,13 @@
+Revision: HscdTeXRes--mainline--0.1--patch-3
+Archive: joachim.falk@gmx.de--2004-systemc-stuff
+Creator: Joachim Falk <falk@cs.fau.de>
+Date: Wed Dec 15 17:10:16 CET 2004
+Standard-date: 2004-12-15 16:10:16 GMT
+New-files: .arch-ids/ES_LESSON.tex.id ES_LESSON.tex
+Modified-files: Rules-TeX.mk
+New-patches: joachim.falk@gmx.de--2004-systemc-stuff/HscdTeXRes--mainline--0.1--patch-3
+Summary: Added new format file ES_LESSON.tex updated Rules-TeX.mk with handling for TEXINPUTS
+Keywords: 
+
+
+

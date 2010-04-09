@@ -1,0 +1,13 @@
+Revision: HscdTeXRes--mainline--0.2--patch-31
+Archive: joachim.falk@gmx.de--2005-common-stuff
+Creator: Joachim Falk <falk@cs.fau.de>
+Date: Thu Nov  6 14:51:44 CET 2008
+Standard-date: 2008-11-06 13:51:44 GMT
+Modified-files: Rules-TeX-Common.mk
+New-patches: joachim.falk@gmx.de--2005-common-stuff/HscdTeXRes--mainline--0.2--patch-31
+Summary: 
+ * Fixed empty BIB_SOURCES handling
+Keywords: 
+
+
+

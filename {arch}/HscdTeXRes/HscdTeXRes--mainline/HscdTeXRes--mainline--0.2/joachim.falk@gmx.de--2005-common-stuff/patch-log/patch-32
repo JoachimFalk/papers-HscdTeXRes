@@ -1,0 +1,13 @@
+Revision: HscdTeXRes--mainline--0.2--patch-32
+Archive: joachim.falk@gmx.de--2005-common-stuff
+Creator: Joachim Falk <falk@cs.fau.de>
+Date: Thu Mar 12 22:12:53 CET 2009
+Standard-date: 2009-03-12 21:12:53 GMT
+Modified-files: Rules-TeX-Common.mk
+New-patches: joachim.falk@gmx.de--2005-common-stuff/HscdTeXRes--mainline--0.2--patch-32
+Summary: 
+ * Fixed %.bbl: %.aux generation rule in Rules-TeX-Common.mk
+Keywords: 
+
+
+

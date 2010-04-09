@@ -1,0 +1,13 @@
+Revision: HscdTeXRes--mainline--0.2--patch-15
+Archive: joachim.falk@gmx.de--2005-common-stuff
+Creator: Joachim Falk <falk@cs.fau.de>
+Date: Fri Jul 21 13:48:29 CEST 2006
+Standard-date: 2006-07-21 11:48:29 GMT
+Modified-files: Rules-TeX.mk
+New-patches: joachim.falk@gmx.de--2005-common-stuff/HscdTeXRes--mainline--0.2--patch-15
+Summary:  
+ * Support fig2dev -L pdftex
+Keywords: 
+
+
+

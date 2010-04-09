@@ -1,0 +1,28 @@
+Revision: HscdTeXRes--mainline--0.2--patch-39
+Archive: joachim.falk@gmx.de--2005-common-stuff
+Creator: Martin Streubuehr <streubuehr@cs.fau.de>
+Date: Fri Jul  3 11:44:06 CEST 2009
+Standard-date: 2009-07-03 09:44:06 GMT
+New-files: beamer-latex-styles/.arch-ids/beamercolorthemecodesign.sty.id
+    beamer-latex-styles/.arch-ids/beamerinnerthemecodesign.sty.id
+    beamer-latex-styles/.arch-ids/beamerouterthemecodesign.sty.id
+    beamer-latex-styles/.arch-ids/beamerthemecodesign.sty.id
+    beamer-latex-styles/beamercolorthemecodesign.sty
+    beamer-latex-styles/beamerinnerthemecodesign.sty
+    beamer-latex-styles/beamerouterthemecodesign.sty
+    beamer-latex-styles/beamerthemecodesign.sty
+Removed-files: beamer-latex-styles/.arch-ids/beamercolorthemeErlangen.sty.id
+    beamer-latex-styles/.arch-ids/beamerinnerthemeErlangen.sty.id
+    beamer-latex-styles/.arch-ids/beamerouterthemeErlangen.sty.id
+    beamer-latex-styles/.arch-ids/beamerthemeErlangen.sty.id
+    beamer-latex-styles/beamercolorthemeErlangen.sty
+    beamer-latex-styles/beamerinnerthemeErlangen.sty
+    beamer-latex-styles/beamerouterthemeErlangen.sty
+    beamer-latex-styles/beamerthemeErlangen.sty
+New-patches: joachim.falk@gmx.de--2005-common-stuff/HscdTeXRes--mainline--0.2--patch-39
+Summary: 
+ - replaced beamer-latex styles with "offically approved" styles designed by Richie
+Keywords: 
+
+
+

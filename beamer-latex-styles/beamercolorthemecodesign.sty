@@ -1,0 +1,35 @@
+\ProvidesPackage{beamercolorthemecodesign}[2009/24/02 v0.1 CoDesign Beamer Template]
+
+% Copyright (C) 2009 Richard Membarth <richard.membarth@cs.fau.de>
+% 
+% This program is free software: you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either version 3 of the License, or
+% (at your option) any later version.
+% 
+% This program is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+% 
+% You should have received a copy of the GNU General Public License
+% along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+%\definecolor{beamer@codesign@color}{rgb}{0.7,0.2,0.2}
+\definecolor{beamer@codesign@color}{rgb}{0.8,0,0}
+\DeclareOptionBeamer{gray}{\definecolor{beamer@codesign@color}{gray}{#1}}
+\DeclareOptionBeamer{rgb}{\definecolor{beamer@codesign@color}{rgb}{#1}}
+\DeclareOptionBeamer{RGB}{\definecolor{beamer@codesign@color}{RGB}{#1}}
+\DeclareOptionBeamer{cmyk}{\definecolor{beamer@codesign@color}{cmyk}{#1}}
+\DeclareOptionBeamer{cmy}{\definecolor{beamer@codesign@color}{cmy}{#1}}
+\DeclareOptionBeamer{named}{\definecolor{beamer@codesign@color}{named}{#1}}
+\DeclareOptionBeamer{hsb}{\definecolor{beamer@codesign@color}{hsb}{#1}}
+\ProcessOptionsBeamer
+
+\setbeamercolor{structure}{fg=beamer@codesign@color}
+
+
+\mode<presentation>
+\mode
+<all>
+

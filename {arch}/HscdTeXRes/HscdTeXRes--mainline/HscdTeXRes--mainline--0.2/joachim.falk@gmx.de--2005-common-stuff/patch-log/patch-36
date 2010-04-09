@@ -1,0 +1,15 @@
+Revision: HscdTeXRes--mainline--0.2--patch-36
+Archive: joachim.falk@gmx.de--2005-common-stuff
+Creator: Joachim Falk <falk@cs.fau.de>
+Date: Wed May  6 15:28:41 CEST 2009
+Standard-date: 2009-05-06 13:28:41 GMT
+Modified-files: Dep-TeX.perl Rules-TeX-Common.mk
+    Rules-TeX-PDF.mk Rules-TeX-PS.mk mk-export-figures.sh
+New-patches: joachim.falk@gmx.de--2005-common-stuff/HscdTeXRes--mainline--0.2--patch-36
+Summary: 
+ * Various improvements to mk-export-figures.sh
+ - This required some changes to Rules-TeX*.mk and Dep-TeX.per
+Keywords: 
+
+
+

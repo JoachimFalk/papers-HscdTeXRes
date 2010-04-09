@@ -1,0 +1,12 @@
+Revision: HscdTeXRes--mainline--0.1--patch-1
+Archive: joachim.falk@gmx.de--2005-common-stuff
+Creator: Joachim Falk <falk@cs.fau.de>
+Date: Tue Feb 15 19:32:23 CET 2005
+Standard-date: 2005-02-15 18:32:23 GMT
+Modified-files: Rules-TeX.mk
+New-patches: joachim.falk@gmx.de--2005-common-stuff/HscdTeXRes--mainline--0.1--patch-1
+Summary: Now support hierarchical directory structures for VPATH builds
+Keywords: 
+
+
+

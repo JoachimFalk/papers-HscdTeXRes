@@ -1,0 +1,22 @@
+Revision: HscdTeXRes--mainline--0.2--patch-41
+Archive: joachim.falk@gmx.de--2005-common-stuff
+Creator: Martin Streubuehr <streubuehr@cs.fau.de>
+Date: Mon Jul 27 16:49:08 CEST 2009
+Standard-date: 2009-07-27 14:49:08 GMT
+New-files: .arch-ids/scd_logo.png.id
+    beamer-latex-styles/.arch-ids/beamercolorthemeSystemCoDesigner.sty.id
+    beamer-latex-styles/.arch-ids/beamerinnerthemeSystemCoDesigner.sty.id
+    beamer-latex-styles/.arch-ids/beamerouterthemeSystemCoDesigner.sty.id
+    beamer-latex-styles/.arch-ids/beamerthemeSystemCoDesigner.sty.id
+    beamer-latex-styles/beamercolorthemeSystemCoDesigner.sty
+    beamer-latex-styles/beamerinnerthemeSystemCoDesigner.sty
+    beamer-latex-styles/beamerouterthemeSystemCoDesigner.sty
+    beamer-latex-styles/beamerthemeSystemCoDesigner.sty
+    scd_logo.png
+New-patches: joachim.falk@gmx.de--2005-common-stuff/HscdTeXRes--mainline--0.2--patch-41
+Summary: 
+ - added SystemCoDesigner beamer theme
+Keywords: 
+
+
+

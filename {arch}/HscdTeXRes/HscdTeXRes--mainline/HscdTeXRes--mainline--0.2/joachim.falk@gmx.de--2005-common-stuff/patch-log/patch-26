@@ -1,0 +1,14 @@
+Revision: HscdTeXRes--mainline--0.2--patch-26
+Archive: joachim.falk@gmx.de--2005-common-stuff
+Creator: Joachim Falk <joachim.falk@gmx.de>
+Date: Sun Mar 23 13:44:13 CET 2008
+Standard-date: 2008-03-23 12:44:13 GMT
+New-files: .arch-ids/Cite-TeX.perl.id Cite-TeX.perl
+Modified-files: Rules-TeX.mk
+New-patches: joachim.falk@gmx.de--2005-common-stuff/HscdTeXRes--mainline--0.2--patch-26
+Summary: 
+ * Fixed auto citation bibtex code
+Keywords: 
+
+
+

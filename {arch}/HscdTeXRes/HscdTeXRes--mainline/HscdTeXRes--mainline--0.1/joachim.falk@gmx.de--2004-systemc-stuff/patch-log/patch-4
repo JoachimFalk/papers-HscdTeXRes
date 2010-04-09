@@ -1,0 +1,12 @@
+Revision: HscdTeXRes--mainline--0.1--patch-4
+Archive: joachim.falk@gmx.de--2004-systemc-stuff
+Creator: Joachim Falk <falk@cs.fau.de>
+Date: Wed Dec 22 14:12:51 CET 2004
+Standard-date: 2004-12-22 13:12:51 GMT
+Modified-files: Rules-TeX.mk
+New-patches: joachim.falk@gmx.de--2004-systemc-stuff/HscdTeXRes--mainline--0.1--patch-4
+Summary: Fixed tex cleanup now use TEXCLEANDIRS for a whitespace seperated list of directories to clean of tex and fig derived files, fixed fig2dev invocation for relative image pathes
+Keywords: 
+
+
+

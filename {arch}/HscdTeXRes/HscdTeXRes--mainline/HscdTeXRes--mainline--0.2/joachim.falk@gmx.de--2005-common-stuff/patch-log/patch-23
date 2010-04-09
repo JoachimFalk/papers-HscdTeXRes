@@ -1,0 +1,16 @@
+Revision: HscdTeXRes--mainline--0.2--patch-23
+Archive: joachim.falk@gmx.de--2005-common-stuff
+Creator: Joachim Falk <falk@cs.fau.de>
+Date: Tue Dec 19 10:44:54 CET 2006
+Standard-date: 2006-12-19 09:44:54 GMT
+New-files: .arch-ids/Dep-TeX.perl.id Dep-TeX.perl
+Modified-files: Rules-TeX.mk
+New-patches: joachim.falk@gmx.de--2005-common-stuff/HscdTeXRes--mainline--0.2--patch-23
+Summary: 
+ * Modified Rules-TeX.mk to work on Suse 10.2 too.
+   Accomplished by extracting .tex dependency traking
+   perl code into its own perl script file Dep-TeX.perl.
+Keywords: 
+
+
+

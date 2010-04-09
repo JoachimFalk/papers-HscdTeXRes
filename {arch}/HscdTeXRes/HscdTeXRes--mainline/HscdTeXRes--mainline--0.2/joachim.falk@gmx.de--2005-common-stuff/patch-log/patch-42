@@ -1,0 +1,16 @@
+Revision: HscdTeXRes--mainline--0.2--patch-42
+Archive: joachim.falk@gmx.de--2005-common-stuff
+Creator: Joachim Falk <falk@cs.fau.de>
+Date: Mon Aug 31 16:38:00 CEST 2009
+Standard-date: 2009-08-31 14:38:00 GMT
+Modified-files: Rules-TeX-PDF.mk Rules-TeX-PS.mk
+New-patches: joachim.falk@gmx.de--2005-common-stuff/HscdTeXRes--mainline--0.2--patch-42
+Summary: 
+ * Fixed HscdTeXRes--mainline--0.2 patch-40
+ - included a "makeidx" run for index generation (in some way similar to bibtex ...)
+   FIX: Don't fail %.aux-dep generation rule when no makeidx needed.
+
+Keywords: 
+
+
+

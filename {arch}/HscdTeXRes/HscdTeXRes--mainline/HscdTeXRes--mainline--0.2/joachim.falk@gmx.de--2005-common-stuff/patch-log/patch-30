@@ -1,0 +1,16 @@
+Revision: HscdTeXRes--mainline--0.2--patch-30
+Archive: joachim.falk@gmx.de--2005-common-stuff
+Creator: Jens Gladigau <gladigau@codesign.informatik.uni-erlangen.de>
+Date: Mon Nov  3 12:28:01 CET 2008
+Standard-date: 2008-11-03 11:28:01 GMT
+Modified-files: Rules-TeX-Common.mk Rules-TeX-PDF.mk
+    Rules-TeX-PS.mk
+New-patches: joachim.falk@gmx.de--2005-common-stuff/HscdTeXRes--mainline--0.2--patch-30
+Summary: 
+  * added variable PS_OR_PDF to rules to avoid setting a \graphicPostfix in
+    LaTeX (which is not transparent to the user!)
+  * added BIB_SOURCES instead of hardcoding 'literature.bib'
+Keywords: 
+
+
+

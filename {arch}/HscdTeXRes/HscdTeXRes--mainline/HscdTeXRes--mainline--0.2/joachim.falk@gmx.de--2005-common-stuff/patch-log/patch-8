@@ -1,0 +1,13 @@
+Revision: HscdTeXRes--mainline--0.2--patch-8
+Archive: joachim.falk@gmx.de--2005-common-stuff
+Creator: Joachim Falk <falk@cs.fau.de>
+Date: Mon Jan 30 11:42:31 CET 2006
+Standard-date: 2006-01-30 10:42:31 GMT
+Modified-files: mk-export-figures.sh
+New-patches: joachim.falk@gmx.de--2005-common-stuff/HscdTeXRes--mainline--0.2--patch-8
+Summary: 
+ * Now mk-export-figures.sh needs argument in which directory the figs reside
+Keywords: 
+
+
+

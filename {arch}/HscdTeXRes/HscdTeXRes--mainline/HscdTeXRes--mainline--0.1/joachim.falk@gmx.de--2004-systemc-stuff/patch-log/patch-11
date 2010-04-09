@@ -1,0 +1,12 @@
+Revision: HscdTeXRes--mainline--0.1--patch-11
+Archive: joachim.falk@gmx.de--2004-systemc-stuff
+Creator: Joachim Falk <falk@cs.fau.de>
+Date: Wed Jan 12 15:20:41 CET 2005
+Standard-date: 2005-01-12 14:20:41 GMT
+Modified-files: format.tex
+New-patches: joachim.falk@gmx.de--2004-systemc-stuff/HscdTeXRes--mainline--0.1--patch-11
+Summary: Eliminated marvosym and latexsym from package inclusion
+Keywords: 
+
+
+

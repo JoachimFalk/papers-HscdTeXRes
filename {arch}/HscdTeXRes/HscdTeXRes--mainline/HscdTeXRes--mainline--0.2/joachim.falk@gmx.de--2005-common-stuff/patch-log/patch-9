@@ -1,0 +1,19 @@
+Revision: HscdTeXRes--mainline--0.2--patch-9
+Archive: joachim.falk@gmx.de--2005-common-stuff
+Creator: Joachim Falk <falk@cs.fau.de>
+Date: Thu Apr 13 15:38:50 CEST 2006
+Standard-date: 2006-04-13 13:38:50 GMT
+New-files: .arch-ids/codesignlogo.png.id
+    .arch-ids/hscd-common.tex.id codesignlogo.png
+    hscd-common.tex
+Removed-files: .arch-ids/ES_LESSON.tex.id ES_LESSON.tex
+Modified-files: format-da.tex format-industry.tex
+    format-report.tex format-sa.tex format.tex
+    {arch}/=tagging-method
+New-patches: joachim.falk@gmx.de--2005-common-stuff/HscdTeXRes--mainline--0.2--patch-9
+Summary: 
+ * Synced formats with info under /proc/codesign/templates
+Keywords: 
+
+
+
