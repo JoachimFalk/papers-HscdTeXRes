@@ -1,0 +1,13 @@
+Revision: HscdTeXRes--mainline--0.2--patch-46
+Archive: joachim.falk@gmx.de--2005-common-stuff
+Creator: Joachim Falk <falk@cs.fau.de>
+Date: Wed Oct 20 13:04:46 CEST 2010
+Standard-date: 2010-10-20 11:04:46 GMT
+Modified-files: Dep-TeX.perl
+New-patches: joachim.falk@gmx.de--2005-common-stuff/HscdTeXRes--mainline--0.2--patch-46
+Summary: 
+ * Fixup in Dep-TeX.perl support quoting of %
+Keywords: 
+
+
+

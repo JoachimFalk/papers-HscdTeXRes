@@ -9,7 +9,7 @@ use vars qw($GRAPHICPOSTFIX);
 $GRAPHICPOSTFIX = $ENV{PS_OR_PDF};
 $GRAPHICPOSTFIX = "pdf" unless defined $GRAPHICPOSTFIX && $GRAPHICPOSTFIX;
 
-my $SRCDIR = "$ENV{SRCDIR}" || ".";
+my $SRCDIR = $ENV{SRCDIR} || ".";
 my @TEXDEPS = ();
 my @PRODUCTIONS = (
       [qr{^(.*)$}               => sub { "$1" }],
@@ -36,6 +36,7 @@ my @PRODUCTIONS = (
 sub texlocate {
   my ( $locate, @ftypes ) = @_;
   return undef if $locate =~ m/^#[0-9]$/;
+  $locate =~ s{\\%}{%}g;
   foreach my $ft (undef, @ftypes) {
     my $input = $locate;
     next if  (defined $ft) &&  ($input =~ m/\.\w+$/);
