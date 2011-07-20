@@ -95,9 +95,9 @@ tex-clean:
 
 %-fig.tex: %.fig
 	{ [ -d `dirname $@` ] || mkdir `dirname $@`; } &&				\
-	{ echo '\begin{picture}(0,0)%' &&						\
-	  echo '\includegraphics[]{$*-tex}%' &&						\
-	  echo '\end{picture}%' &&							\
+	{ echo -e '\\begin{picture}(0,0)%' &&						\
+	  echo -e '\\includegraphics[]{$*-tex}%' &&					\
+	  echo -e '\\end{picture}%' &&							\
 	  ( cd `dirname $<` && fig2dev -L pstex_t `basename $<` ); } > $*-fig.tex
 
 %-tex.pdf: %.fig
