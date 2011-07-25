@@ -67,7 +67,7 @@ tex-clean:
 -include $(TEX_DEPS) $(TEX_AUX_DEPS)
 
 %.bbl: %.aux $(BIB_SOURCES)
-	set $(dir $^); ABSAUXDIR=`cd $$1; pwd`; if test x"$$2" != x; then cd $$2; fi && bibtex $$ABSAUXDIR/$(notdir $(basename $<))
+	set $(dir $^); if test x"$$1" != x; then cd $$1; fi && BIBINPUTS=`cd $$2; pwd`:"$$BIBINPUTS" bibtex $(notdir $(basename $<))
 
 %.eps: %.fig
 	( cd `dirname $<` && fig2dev -L eps `basename $<` ) > $@
