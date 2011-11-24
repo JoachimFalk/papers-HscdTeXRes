@@ -135,7 +135,7 @@ $DEFS
 EOF
         { make ${figure%%.fig}-tex.pdf ${figure%%.fig}-fig.tex &&
             pdflatex foo-pdf.tex && pdfcrop foo-pdf.pdf && mv foo-pdf-crop.pdf foo.pdf;
-          } < /dev/null > /dev/null 2>/dev/null
+          } < /dev/null > ${figure%%.fig}.log 2>&1
         STATUS=$?
         if test x"$FIGEXPORT_PDF" != x"no"; then
           [ $STATUS -eq 0 ] && cp foo.pdf ${figure%%.fig}.pdf &&
@@ -161,7 +161,7 @@ $DEFS
 EOF
         { make ${figure%%.fig}-tex.ps ${figure%%.fig}-fig.tex &&
             latex foo-eps.tex && dvips foo-eps.dvi && ps2epsi foo-eps.ps foo.eps;
-          } < /dev/null > /dev/null 2>/dev/null
+          } < /dev/null > ${figure%%.fig}.log 2>&1
         STATUS=$?
         if test x"$FIGEXPORT_EPS" != x"no"; then
           [ $STATUS -eq 0 ] && cp foo.eps ${figure%%.fig}.eps &&
@@ -187,7 +187,7 @@ $DEFS
 \end{document}
 EOF
         { pdflatex foo-pdf.tex && pdfcrop foo-pdf.pdf && \
-          mv foo-pdf-crop.pdf foo.pdf; } < /dev/null > /dev/null 2>/dev/null
+          mv foo-pdf-crop.pdf foo.pdf; } < /dev/null > ${figure%%.fig}.log 2>&1
         STATUS=$?
         if test x"$FIGEXPORT_PDF" != x"no"; then
           [ $STATUS -eq 0 ] && cp foo.pdf ${figure}.pdf &&
@@ -212,7 +212,7 @@ $DEFS
 \end{document}
 EOF
         { latex foo-eps.tex && dvips foo-eps.dvi && \
-          ps2epsi foo-eps.ps foo.eps; } < /dev/null > /dev/null 2>/dev/null
+          ps2epsi foo-eps.ps foo.eps; } < /dev/null > ${figure%%.fig}.log 2>&1
         STATUS=$?
         if test x"$FIGEXPORT_EPS" != x"no"; then
           [ $STATUS -eq 0 ] && cp foo.eps ${figure}.eps &&
