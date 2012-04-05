@@ -21,16 +21,21 @@ clean: tex-clean
 
 tex-clean:
 	@$(RM_F) $(TEX_TARGETS)
-	@for j in $(TEXCLEANDIRS); do \
-	  $(RM_F) $$j/*.tex-dep $$j/*.tex-dep-enable $$j/*.tex-stamp* \
-	  	  $$j/*.aux-dep $$j/*.aux-dep-enable $$j/*.aux-old \
-		  $$j/*.dvi $$j/*.out ; \
-	  for i in $$j/*.{nav,snm,vrb,aux,bbl,blg,log,idx,ilg,ind,toc,pdf}; do \
+	@find $(TEXCLEANDIRS) \
+		-name "*.tex-dep" -o -name "*.tex-dep-enable" -o -name "*.tex-stamp*" \
+	     -o	-name "*.aux-dep" -o -name "*.aux-dep-enable" -o -name "*.aux.old" \
+	     -o	-name "*.dvi" -o -name "*.out" -delete
+	@find $(TEXCLEANDIRS) \
+		-name "*.nav" -o -name "*.snm" -o -name "*.vrb" -o -name "*.aux" \
+	     -o	-name "*.bbl" -o -name "*.blg" -o -name "*.log" -o -name "*.idx" \
+	     -o	-name "*.ilg" -o -name "*.ind" -o -name "*.toc" -o -name "*.pdf" | \
+	  while read i; do \
 	    if $(MAKE) "$${i%.*}.tex" 2>/dev/null >/dev/null; then \
 	      $(RM_F) $$i; \
 	    fi; \
-	  done; \
-	  for i in $$j/*.pdf; do \
+	  done
+	@find $(TEXCLEANDIRS) -name "*.pdf" | \
+	  while read i; do \
 	    if	$(MAKE) -n "$${i%.*}.fig" 2>/dev/null >/dev/null || \
 		$(MAKE) -n "$${i%.*}.dia" 2>/dev/null >/dev/null || \
 		$(MAKE) -n "$${i%.*}.svg" 2>/dev/null >/dev/null || \
@@ -38,21 +43,22 @@ tex-clean:
 		$(MAKE) -n "$${i%.*}.ps" 2>/dev/null >/dev/null; then \
 	      $(RM_F) $$i; \
 	    fi; \
-	  done; \
-	  for i in $$j/*.ps $$j/*.eps; do \
+	  done
+	@find $(TEXCLEANDIRS) -name "*.ps" -o -name "*.eps" | \
+	  while read i; do \
 	    if	$(MAKE) -n "$${i%.*}.fig" 2>/dev/null >/dev/null || \
 		$(MAKE) -n "$${i%.*}.dia" 2>/dev/null >/dev/null || \
 		$(MAKE) -n "$${i%.*}.svg" 2>/dev/null >/dev/null || \
 		$(MAKE) -n "$${i%.*}.plt" 2>/dev/null >/dev/null; then \
 	      $(RM_F) $$i; \
 	    fi; \
-	  done; \
-	  for i in $$j/*-{fig.tex,tex.ps}; do \
+	  done
+	@find $(TEXCLEANDIRS) -name "*.fig.tex" -o -name "*-tex.ps" | \
+	  while read i; do \
 	    if $(MAKE) -n "$${i%-*}.fig" 2>/dev/null >/dev/null; then \
 	      $(RM_F) $$i; \
 	    fi; \
-	  done; \
-	done
+	  done
 
 %.tex-dep: %.tex %.tex-dep-enable
 	@{										\
@@ -86,6 +92,9 @@ tex-clean:
 
 %.eps: %.svg
 	cd `dirname $<` && inkscape --export-eps `basename $@` `basename $<`
+
+%.pdf: %.svg
+	cd `dirname $<` && inkscape --export-pdf `basename $@` `basename $<`
 
 %.eps: %.plt
 	cd `dirname $<` && (\
