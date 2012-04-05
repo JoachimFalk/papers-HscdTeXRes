@@ -21,7 +21,7 @@ LATEX=latex --file-line-error-style
 	$(RM_F) $*.dvi;									\
 	[ -f $*.aux ]
 
-%.dvi: %.tex %.tex-stamp
+%.dvi %.idx: %.tex %.tex-stamp
 	@if test -f $*.aux-dep-enable; then						\
 	  $(MAKE) $*.aux && $(MV_F) $*.aux $*.aux-old && $(CP_F) $*.aux-old $*.aux ||   \
 	    { $(RM_F) $*.dvi $*.aux $*.aux-old; exit 1; };				\

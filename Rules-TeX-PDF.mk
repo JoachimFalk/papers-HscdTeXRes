@@ -21,7 +21,7 @@ PDFLATEX=pdflatex --file-line-error-style
 	$(RM_F) $*.pdf;									\
 	[ -f $*.aux ]
 
-%.pdf: %.tex %.tex-stamp
+%.pdf %.idx: %.tex %.tex-stamp
 	@if test -f $*.aux-dep-enable; then						\
 	  $(MAKE) $*.aux && $(MV_F) $*.aux $*.aux-old && $(CP_F) $*.aux-old $*.aux ||   \
 	    { $(RM_F) $*.pdf $*.aux $*.aux-old; exit 1; };				\
