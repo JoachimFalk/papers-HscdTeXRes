@@ -1,0 +1,63 @@
+\documentclass[DIV14, a4paper, 12pt, headsepline, pointlessnumbers, bibtotoc, idxtotoc, twoside, BCOR2cm]{scrbook}
+      
+\input{hscd-common.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% NEWCOMMAND \datetitle
+%%
+%% \datetitle{Title}{Author}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\codesigntitle}[2]
+{ \begin{titlepage}
+
+  \titlehead
+  { \hspace*{-18mm}
+    \parbox[t]{14.4cm}{
+        \parbox{76mm}{
+        \vspace*{-25mm}
+        \includegraphics[width=35mm]{logos/codesign/codesign}
+      }
+      \hfill
+      \parbox{35mm}{
+        \vspace*{-23mm}
+        \includegraphics[width=76mm]{logos/fau/FAU_tech_cmyk}
+      }
+    }
+  }
+  \title{{\parbox{0mm}{}\\[1cm]\huge \sffamily \bfseries{#1}}}
+
+  \ifthenelse{\boolean{englishDocument}}
+  { \author{\Large #2\\[4mm]
+    \Large Hardware/Software Co-Design\\
+    \Large Department of Computer Science\\
+    \Large University of Erlangen-Nuremberg\\
+    \Large Cauerstraße 11
+    \Large D-91058 Erlangen, Germany \\[16mm]}
+    \date{\dateenglish{\today}}
+  }
+  { \author{\Large #2\\[4mm]
+    \Large Lehrstuhl für Informatik 12\\
+    \Large (Hardware-Software-Co-Design)\\
+    \Large Universität Erlangen-Nürnberg\\
+    \Large Cauerstraße 11\\
+    \Large 91058 Erlangen\\[16mm]}
+    \date{\dategerman{\today}}
+  }
+  \thispagestyle{empty}
+  \ifthenelse{\boolean{englishDocument}}
+  { \lowertitleback{This document was produced with the typesetting system \LaTeX2e.}
+  }
+  { \lowertitleback{Dieses Dokument wurde mit dem Textsatzsystem \LaTeX2e erstellt.}
+  }
+ 
+  \end{titlepage}   
+
+  \maketitle
+}
+
+\newboolean{printVersion}
+\setboolean{printVersion}{true}      % default setting
+\newboolean{englishDocument}
+\setboolean{englishDocument}{false}  % default setting
+
+\makeindex

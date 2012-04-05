@@ -1,52 +1,61 @@
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+\usepackage[slantedGreek]{mathptmx}
 
+% usage of zapf chancery as calligraphic font instead of rsfs
+\DeclareSymbolFont{symbols}%
+  {OMS}{pzc}{m}{n}
+\DeclareSymbolFontAlphabet{\mathcal}%
+  {symbols}
+  
+\usepackage{graphicx}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage[utf8]{inputenc}
+% Die Standardschriftart von LaTeX ist die Computer-Modern-Schriftfamilie (CM). 
+% Standardmäßig bietet diese aber nicht alle 256 Zeichen des europäischen 
+% Zeichenvorrates in T1-Kodierung. Umlaute z. B. werden ohne den Einsatz der 
+% ec-Schriften nur aus den begrenzt vorhandenen Zeichen neu zusammengesetzt. Die 
+% ec- und tc-Schriften bieten dagegen einen Zeichenvorrat entsprechend der T1- 
+% und TS1-Kodierung. Eingebunden wird die T1-Version der 
+% Computer-Modern-Schriftsippe mit \usepackage[T1]{fontenc}. Dadurch ist auch 
+% sichergestellt, dass in einem PDF Umlaute gefunden werden.
+\usepackage[T1]{fontenc}
+\usepackage{booktabs}
+\usepackage{float}
+%\heavyrulewidth=0.1em
+\usepackage{makeidx}
+\usepackage[german,english]{babel}
+\usepackage{ifthen}
 \usepackage{color,epsfig}
-\usepackage{amsmath}
-%\usepackage{theorem}
-\usepackage{amssymb}
 \usepackage{calc}
 %\usepackage{subfigure}
-\usepackage{times}
-\usepackage{listings}
-\usepackage{rotating}
-\usepackage{ae}
-\usepackage{cite}
+%\usepackage{listings}
+%\usepackage{rotating}
+%\usepackage{ae}
+%\usepackage{cite}
 \usepackage[normalem]{ulem}
+
+\renewcommand{\topfraction}{1.0}    % Bilder duerfen auch direkt am
+                                    % Seitenanfang sein
+\renewcommand{\bottomfraction}{1.0} % Bilder duerfen auch direkt am
+                                    % Seitenende sein
+
+\newcommand{\remark}{\tiny \normalsize}
+\newcommand{\trademark}{\tiny\texttrademark \normalsize}
 
 % The Postscript fonts do not have a bold symbol font.
 % Emulate \boldsymbol via the \pmb{} (poor man's bold) command.
 \renewcommand{\boldsymbol}[1]{\pmb{#1}}
 
-\usepackage{verbatim}
 %\usepackage{fancyvrb}
 %% backward compatibility cruft for verbatim
 %\newcommand{\verbatiminput}[1]{\VerbatimInput{#1}}
 
-% Use a small font for the verbatim environment
-\makeatletter  % makes '@' an ordinary character
-\renewcommand{\verbatim@font}{%
-  \ttfamily\small\catcode`\<=\active\catcode`\>=\active%
-}
-\makeatother   % makes '@' a special symbol again
-
-%\hypersetup{
-%  colorlinks = true,
-%  linkcolor  = black,
-%  anchorcolor= black,
-%  citecolor  = black,
-%  filecolor  = black,
-%  menucolor  = black,
-%  pagecolor  = black,
-%  urlcolor   = black
+%\usepackage{verbatim}
+%% Use a small font for the verbatim environment
+%\makeatletter  % makes '@' an ordinary character
+%\renewcommand{\verbatim@font}{%
+%  \ttfamily\small\catcode`\<=\active\catcode`\>=\active%
 %}
-
-%\floatstyle{ruled}
-%\floatname{algorithm}{\sffamily\bfseries Algorithm}
-%\newfloat{algorithm}{tbp}{lol}%[section]
-
-%\newcommand{\remark}{\tiny® \normalsize}
-%\newcommand{\trademark}{\tiny\texttrademark \normalsize}
+%\makeatother   % makes '@' a special symbol again
 
 \usepackage{ifpdf}
 \ifpdf
