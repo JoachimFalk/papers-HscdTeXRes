@@ -21,10 +21,10 @@ clean: tex-clean
 
 tex-clean:
 	@$(RM_F) $(TEX_TARGETS)
-	@find $(TEXCLEANDIRS) \
+	@find $(TEXCLEANDIRS) \( \
 		-name "*.tex-dep" -o -name "*.tex-dep-enable" -o -name "*.tex-stamp*" \
 	     -o	-name "*.aux-dep" -o -name "*.aux-dep-enable" -o -name "*.aux.old" \
-	     -o	-name "*.dvi" -o -name "*.out" -delete
+	     -o	-name "*.dvi" -o -name "*.out" \) -delete
 	@find $(TEXCLEANDIRS) \
 		-name "*.nav" -o -name "*.snm" -o -name "*.vrb" -o -name "*.aux" \
 	     -o	-name "*.bbl" -o -name "*.blg" -o -name "*.log" -o -name "*.idx" \
