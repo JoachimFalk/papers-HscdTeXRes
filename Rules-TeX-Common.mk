@@ -39,6 +39,7 @@ tex-clean:
 	    if	$(MAKE) -n "$${i%.*}.fig" 2>/dev/null >/dev/null || \
 		$(MAKE) -n "$${i%.*}.dia" 2>/dev/null >/dev/null || \
 		$(MAKE) -n "$${i%.*}.svg" 2>/dev/null >/dev/null || \
+		$(MAKE) -n "$${i%.*}.odg" 2>/dev/null >/dev/null || \
 		$(MAKE) -n "$${i%.*}.eps" 2>/dev/null >/dev/null || \
 		$(MAKE) -n "$${i%.*}.ps" 2>/dev/null >/dev/null; then \
 	      $(RM_F) $$i; \
@@ -49,6 +50,7 @@ tex-clean:
 	    if	$(MAKE) -n "$${i%.*}.fig" 2>/dev/null >/dev/null || \
 		$(MAKE) -n "$${i%.*}.dia" 2>/dev/null >/dev/null || \
 		$(MAKE) -n "$${i%.*}.svg" 2>/dev/null >/dev/null || \
+		$(MAKE) -n "$${i%.*}.odg" 2>/dev/null >/dev/null || \
 		$(MAKE) -n "$${i%.*}.plt" 2>/dev/null >/dev/null; then \
 	      $(RM_F) $$i; \
 	    fi; \
@@ -80,6 +82,12 @@ tex-clean:
 
 %.pdf: %.fig
 	( cd `dirname $<` && fig2dev -L pdf `basename $<` ) > $@
+
+%.eps: %.odg
+	cd $(dir $<) && ooffice --headless --convert-to eps $(notdir $<)
+
+%.pdf: %.odg
+	cd $(dir $<) && ooffice --headless --convert-to pdf $(notdir $<)
 
 %.eps: %.dot
 	dot -Tps $< > $@
