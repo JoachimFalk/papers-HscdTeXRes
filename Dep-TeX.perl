@@ -82,6 +82,9 @@ while (<stdin>) {
         print " ", texlocate($1,$GRAPHICPOSTFIX,"png");
       }
    }ge;
+  s{\\includepdf(?:|<[^>]*>)(?:|\[[^]]*\]){([^\}]*)}}{
+      print " ", texlocate($1,"pdf");
+   }ge;
   s{\\verbatiminput{([^\}]*)}}{
       print " ", texlocate($1);
    }ge;
