@@ -53,7 +53,7 @@ tex-clean:
 	      $(RM_F) $$i; \
 	    fi; \
 	  done
-	@find $(TEXCLEANDIRS) -name "*.fig.tex" -o -name "*-tex.ps" | \
+	@find $(TEXCLEANDIRS) -name "*-fig.tex" -o -name "*-tex.ps" | \
 	  while read i; do \
 	    if $(MAKE) -n "$${i%-*}.fig" 2>/dev/null >/dev/null; then \
 	      $(RM_F) $$i; \
