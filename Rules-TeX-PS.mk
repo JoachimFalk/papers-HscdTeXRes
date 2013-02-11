@@ -15,20 +15,26 @@ LATEX=latex --file-line-error-style
 	  grep "makeidx" "$*.log" > /dev/null && echo " $*.ind" || echo;		\
 	} < $< > $@
 
-%.aux: %.tex %.tex-stamp
-	@{ TEXINPUTS="$(TEXINPUTS)" $(LATEX) $< </dev/null || $(RM_F) $*.aux; } |	\
+%.aux %.idx: %.tex %.tex-stamp
+	@{ TEXINPUTS="$(TEXINPUTS)" $(LATEX) $< </dev/null || 				\
+	   $(RM_F) $*.aux $*.idx; } |							\
 	  sed -e 's/^\(.*\.tex:[0-9].*\)$$/[31m\1[30m/';				\
 	$(RM_F) $*.dvi;									\
 	[ -f $*.aux ]
 
-%.dvi %.idx: %.tex %.tex-stamp
+%.dvi: %.tex %.tex-stamp
 	@if test -f $*.aux-dep-enable; then						\
-	  $(MAKE) $*.aux && $(MV_F) $*.aux $*.aux-old && $(CP_F) $*.aux-old $*.aux ||   \
-	    { $(RM_F) $*.dvi $*.aux $*.aux-old; exit 1; };				\
+	  $(MAKE) $*.aux && {								\
+	      $(MV_F) $*.idx $*.idx-old && $(CP_F) $*.idx-old $*.idx;			\
+	      $(MV_F) $*.aux $*.aux-old && $(CP_F) $*.aux-old $*.aux;			\
+	    } ||									\
+	    { $(RM_F) $*.dvi $*.aux $*.aux-old $*.idx $*.idx-old; exit 1; };		\
 	  TEXINPUTS="$(TEXINPUTS)" $(LATEX) $< </dev/null ||				\
-	    { $(RM_F) $*.dvi $*.aux $*.aux-old; exit 1; };				\
-	  diff $*.aux-old $*.aux >/dev/null &&						\
-	    { $(MV_F) $*.aux-old $*.aux && exit 0 || exit 1; };				\
+	    { $(RM_F) $*.dvi $*.aux $*.aux-old $*.idx $*.idx-old; exit 1; };		\
+	  diff $*.aux-old $*.aux >/dev/null && {					\
+	      $(MV_F) $*.idx-old $*.idx;						\
+	      $(MV_F) $*.aux-old $*.aux && exit 0 || exit 1;				\
+	    };										\
 	  $(RM_F) $@ && $(MAKE) $@ && exit 0 || exit 1;					\
 	else										\
 	  touch $*.aux-dep-enable; $(MAKE) $@; RETVAL=$$?; $(RM_F) $*.aux-dep-enable;	\

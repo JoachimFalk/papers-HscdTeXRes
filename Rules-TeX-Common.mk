@@ -163,5 +163,4 @@ tex-clean:
 %.ind: %.idx
 	makeindex "$<"
 
-
 .PHONY: all clean tex-all tex-clean
