@@ -8,6 +8,10 @@ TEX_DEPS=$(TEX_SOURCES:.tex=.tex-dep)
 TEX_AUX_DEPS=$(TEX_SOURCES:.tex=.aux-dep)
 
 TEX_STDINCLUDES:=$(shell find /usr/share/texmf/tex -type d)
+OOFFICE:=$(shell which ooffice)
+ifeq ($(OOFFICE),)
+OOFFICE:=$(shell which libreoffice)
+endif
 
 ifndef BIB_SOURCES
 BIB_SOURCES = literature.bib
@@ -84,10 +88,10 @@ tex-clean:
 	( cd `dirname $<` && fig2dev -L pdf `basename $<` ) > $@
 
 %.eps: %.odg
-	cd $(dir $<) && ooffice --headless --convert-to eps $(notdir $<)
+	cd $(dir $<) && $(OOFFICE) --headless --convert-to eps $(notdir $<)
 
 %.pdf: %.odg
-	cd $(dir $<) && ooffice --headless --convert-to pdf $(notdir $<)
+	cd $(dir $<) && $(OOFFICE) --headless --convert-to pdf $(notdir $<)
 
 %.eps: %.dot
 	dot -Tps $< > $@
