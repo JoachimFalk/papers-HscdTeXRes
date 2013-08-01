@@ -56,7 +56,7 @@ sub texlocate {
         }
       }
     }
-    foreach my $i qw($ENV{TEX_STDINCLUDES}) {
+    foreach my $i (qw($ENV{TEX_STDINCLUDES})) {
       foreach my $m (@PRODUCTIONS) {
         my ($p,$t) = @$m;
         if ( $input =~ $p ) {
