@@ -18,7 +18,7 @@ PDFLATEX=pdflatex --file-line-error-style
 %.aux %.idx: %.tex %.tex-stamp
 	@{ TEXINPUTS="$(TEXINPUTS)" $(PDFLATEX) $< </dev/null || 			\
 	   $(RM_F) $*.aux $*.idx; } |							\
-	  sed -e 's/^\(.*\.tex:[0-9].*\)$$/[31m\1[30m/';				\
+	  sed -e 's/^\(.*\.tex:[0-9].*\)$$/[31m\1[39m/';				\
 	$(RM_F) $*.pdf;									\
 	[ -f $*.aux ]
 
