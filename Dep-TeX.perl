@@ -41,7 +41,7 @@ sub texlocate {
   $locate =~ s{\\%}{%}g;
   foreach my $ft (undef, @ftypes) {
     my $input = $locate;
-    next if  (defined $ft) &&  ($input =~ m/\.\w+$/);
+    next if  (defined $ft) &&  ($input =~ m/\.(\w+)$/ && $1 ne "tikz");
     next if !(defined $ft) && !($input =~ m/\.\w+$/) && ($#ftypes >= 0);
     $input .= ".".$ft if defined $ft;
     foreach my $i (split(/:/, ".:$ENV{TEXINPUTS}")) {
