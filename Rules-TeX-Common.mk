@@ -1,5 +1,7 @@
 # vim: set noet ts=8 sts=0 sw=2:
 
+SHELL=/bin/bash
+
 RM_F=rm -f
 MV_F=mv -f
 CP_F=cp -f
