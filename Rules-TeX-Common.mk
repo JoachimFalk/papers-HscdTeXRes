@@ -151,7 +151,11 @@ tex-clean:
 	@touch $@
 
 %-2x1.pdf: %.pdf
-	pdfnup $<
+	if which pdfjam > /dev/null; then \
+	  pdfjam --suffix 2x1 --nup '2x1' --landscape -- "$<"; \
+	else \
+	  pdfnup $<; \
+	fi
 
 # ps & pdf to (color) png conversion
 %.png: %.ps
