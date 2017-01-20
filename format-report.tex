@@ -1,0 +1,62 @@
+\documentclass[a4paper, 12pt, BCOR2cm, headsepline, pointlessnumbers, bibtotoc, idxtotoc, german, english, american]{scrartcl}
+
+\input{hscd-common.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% NEWCOMMAND \hscdtitle
+%%
+%% \hscdtitle{Title}{Author}{Report-Nr.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\hscdtitle}[3]{
+  \begin{titlepage}
+    \titlehead
+    { \hspace*{-18mm}
+      \parbox[t]{14.4cm}{
+	  \parbox{76mm}{
+	  \vspace*{-25mm}
+	  \includegraphics[width=35mm]{logos/codesign/codesign}
+	}
+ 	\hfill
+	\parbox{65mm}{
+	  \vspace*{-27mm}
+	  \includegraphics[width=76mm]{logos/fau/FAU_tech_cmyk}
+	}
+      }
+    }
+    \title{{\parbox{0mm}{}\\[1cm]\huge \sffamily \bfseries{#1}}}
+
+    \ifthenelse{\boolean{englishDocument}}
+    { \author{\Large #2\\[4mm]
+      \Large Hardware/Software Co-Design\\
+      \Large Department of Computer Science\\
+      \Large University of Erlangen-Nuremberg\\
+      \Large Cauerstraße 11
+      \Large D-91058 Erlangen, Germany \\[7mm]}
+      \Large {\bf Co-Design-Report #3}\\[16mm]
+    }
+    { \author{\Large #2\\[4mm]
+      \Large Lehrstuhl für Informatik 12\\
+      \Large (Hardware-Software-Co-Design)\\
+      \Large Universität Erlangen-Nürnberg\\
+      \Large Cauerstraße 11\\
+      \Large 91058 Erlangen \\[7mm]
+      \Large {\bf Co-Design-Report #3}\\[16mm]}
+    }
+    \date{\today}
+    \thispagestyle{empty}
+  \end{titlepage}
+% \hypersetup{
+%   pdftitle   = {#1},
+%   pdfauthor  = {#2},
+%   pdfsubject = {Co-Design-Report #3}
+% }
+  \maketitle
+  \thispagestyle{empty}
+}
+
+\newboolean{printVersion}
+\setboolean{printVersion}{true}      % default setting
+\newboolean{englishDocument}
+\setboolean{englishDocument}{false}  % default setting
+
+\makeindex
