@@ -10,8 +10,11 @@ all:
 
 SUBDIRS=
 
-TEXCLEANDIRS=. figs images
-TEXINPUTS:=.:figs:images:$(RESDIR):$(TEXINPUTS)
+#TEXCLEANDIRS=. figs images
+#TEXINPUTS:=.:figs:images:$(RESDIR):$(TEXINPUTS)
+TEXCLEANDIRS=.
+TEXINPUTS:=.:$(RESDIR):$(TEXINPUTS)
+
 
 include $(RESDIR)/Rules-TeX-PDF.mk
 
@@ -23,3 +26,4 @@ force:
 	$(MAKE) tex-all
 
 .PHONY: todo force all doc
+.SUFFIXES:

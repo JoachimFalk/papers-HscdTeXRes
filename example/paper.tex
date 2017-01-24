@@ -1,0 +1,33 @@
+\input{format-report}
+
+\begin{document}
+\hscdtitle{Example of a Report}{Your Name}{1-2003}
+\clearpage
+\tableofcontents
+\clearpage
+
+\section{Introduction\label{intro}}
+Here starts your text.
+\par
+You can use labels as in Section~\ref{intro}.
+
+\section{About Your Work}
+You can place figures in your text as shown in Figure~\ref{yourfigure}.
+%\begin{figure}
+%\centering
+%\includegraphics[width=4in]{codesign.pdf}
+%\caption{\label{yourfigure}Your Figure}
+%\end{figure}
+\par
+You can cite any literatur by using the $\backslash$cite command. 
+Here, an example: \cite{btt:1998}.
+\subsection{First ideas}
+\subsection{Obstacles}
+\subsection{Results}
+
+\clearpage
+\appendix
+\bibliographystyle{alpha}
+\bibliography{literature}
+
+\end{document}
