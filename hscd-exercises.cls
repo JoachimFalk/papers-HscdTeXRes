@@ -140,18 +140,21 @@ Cauerstraße 11\\[-1mm]
 %-- Neue Umgebungen -----------------------------------------------------------
 %\titleformat{\section}{\bfseries}{\hscd@taskname\ \thesection}{0.5em}{}
 \def\hscd@taskname{\iflanguage{english}{Task}{Aufgabe}}
-\titlespacing*{\section}{0pt}{0pt}{4pt}
-\titleformat{\section}{\bfseries}{\hscd@taskname\ \thesection}{0.5em}{}
+%\titlespacing*{\section}{0pt}{0pt}{4pt}
+%\titleformat{\section}{\bfseries}{\hscd@taskname\ \thesection}{0.5em}{}
+\newcounter{hscd@taskcounter}
 
 \newenvironment{aufgabe}[2]{
-\section{%
+\bigskip\noindent
+\refstepcounter{hscd@taskcounter}
+\textbf{\hscd@taskname\ \thehscd@taskcounter\ 
 \ifhscd@solution
 (#1)\ifx\\#2\\\else\hfill\textmd{(#2)}\fi%
 \else
 (#1)%
 \fi
-}
-}{\vspace{0.5cm}}
+}\newline}
+{\vspace{0.5cm}}
 
 %-- Listings -----------------------------------------------------------
 \RequirePackage{listings}
