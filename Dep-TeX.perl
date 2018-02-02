@@ -101,6 +101,9 @@ while (<stdin>) {
         push @TEXDEPS, "$input";
       }
    }ge;
+  s{\\addplot.*\btable(?:\[[^]]*\])?{([^\}]*)}}{
+      print " ", texlocate($1);
+   }ge;
 }
 print "\n";
 print map { "-include $_-dep\n" } @TEXDEPS;
