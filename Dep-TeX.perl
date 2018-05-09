@@ -101,7 +101,7 @@ while (<stdin>) {
         push @TEXDEPS, "$input";
       }
    }ge;
-  s{\\addplot.*\btable(?:\[[^]]*\])?{([^\}]*)}}{
+  s{\\addplot.*\btable(?:\[[^]]*\])?\{([^\}]*)\}}{
       print " ", texlocate($1);
    }ge;
 }
