@@ -75,7 +75,7 @@ while (<stdin>) {
   s@(^|[^\\])%.*$@$1@;
   s@\\graphicPostfix\b\s*@$GRAPHICPOSTFIX@g;
   s@\\resdir\b\s*@$ENV{RESDIR}/@g;
-  s{\\includegraphics(?:|<[^>]*>)(?:|\[[^]]*\]){([^\}]*)}}{
+  s{\\includegraphics(?:|<[^>]*>)(?:|\[[^]]*\])\{([^\}]*)\}}{
       if ($GRAPHICPOSTFIX eq 'ps') {
         print " ", texlocate($1,$GRAPHICPOSTFIX,"eps","png");
       } elsif ($GRAPHICPOSTFIX eq 'eps') {
@@ -84,13 +84,13 @@ while (<stdin>) {
         print " ", texlocate($1,$GRAPHICPOSTFIX,"png");
       }
    }ge;
-  s{\\includepdf(?:|<[^>]*>)(?:|\[[^]]*\]){([^\}]*)}}{
+  s{\\includepdf(?:|<[^>]*>)(?:|\[[^]]*\])\{([^\}]*)\}}{
       print " ", texlocate($1,"pdf");
    }ge;
-  s{\\verbatiminput{([^\}]*)}}{
+  s{\\verbatiminput\{([^\}]*)\}}{
       print " ", texlocate($1);
    }ge;
-  s{\\(?:input|include){([^\}]*)}}{
+  s{\\(?:input|include)\{([^\}]*)\}}{
       my $input = texlocate($1, "tex");
       if (defined $input) {
         if ($input =~ m/\.tex$/) {
