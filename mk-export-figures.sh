@@ -120,6 +120,7 @@ doFig() {
       if test x"$FIGEXPORT_PDF" != x"no" -o x"$FIGEXPORT_PNG" = x"via-pdf"; then
         cat > foo-pdf.tex <<EOF &&
 \documentclass[a4paper, 12pt, english]{article}
+\usepackage[landscape]{geometry}
 
 \input{hscd-common.tex}
 
@@ -146,6 +147,7 @@ EOF
       if test x"$FIGEXPORT_EPS" != x"no" -o x"$FIGEXPORT_PNG" = x"via-eps"; then
         cat > foo-eps.tex <<EOF &&
 \documentclass[a4paper, 12pt, english]{article}
+\usepackage[landscape]{geometry}
 
 \input{hscd-common.tex}
 
@@ -173,6 +175,7 @@ EOF
       if test x"$FIGEXPORT_PDF" != x"no" -o x"$FIGEXPORT_PNG" = x"via-pdf"; then
         cat > foo-pdf.tex <<EOF &&
 \documentclass[a4paper, 12pt, english]{article}
+\usepackage[landscape]{geometry}
 
 \input{hscd-common.tex}
 
@@ -198,6 +201,7 @@ EOF
       if test x"$FIGEXPORT_EPS" != x"no" -o x"$FIGEXPORT_PNG" = x"via-eps"; then
         cat > foo-eps.tex <<EOF &&
 \documentclass[a4paper, 12pt, english]{article}
+\usepackage[landscape]{geometry}
 
 \input{hscd-common.tex}
 
