@@ -6,6 +6,6 @@ use warnings;
 
 my $citation = 0;
 while (<>) {
-  $citation = 1 if m@^\\citation{@;
+  $citation = 1 if m@^\\citation\{@;
 }
 print "$ENV{STEM}.bbl" if $citation;
