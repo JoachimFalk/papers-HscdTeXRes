@@ -6,9 +6,6 @@ RM_F=rm -f
 MV_F=mv -f
 CP_F=cp -f
 
-TEX_DEPS=$(TEX_SOURCES:.tex=.tex-dep)
-TEX_AUX_DEPS=$(TEX_SOURCES:.tex=.aux-dep)
-
 TEX_STDINCLUDES:=$(shell find /usr/share/texmf/tex -type d)
 OOFFICE:=$(shell which ooffice)
 ifeq ($(OOFFICE),)
@@ -28,8 +25,8 @@ clean: tex-clean
 tex-clean:
 	@$(RM_F) $(TEX_TARGETS)
 	@find $(TEXCLEANDIRS) \( \
-		-name "*.tex-dep" -o -name "*.tex-dep-enable" -o -name "*.tex-stamp*" \
-	     -o	-name "*.aux-dep" -o -name "*.aux-dep-enable" -o -name "*.aux.old" \
+		-name "*.tex-dep" \
+	     -o	-name "*.aux-dep" -o -name "*.aux.old" \
 	     -o	-name "*.dvi" -o -name "*.out" \) -delete
 	@find $(TEXCLEANDIRS) \
 		-name "*.nav" -o -name "*.snm" -o -name "*.vrb" -o -name "*.aux" \
@@ -68,16 +65,29 @@ tex-clean:
 	    fi; \
 	  done
 
-%.tex-dep: %.tex %.tex-dep-enable
+ifeq ($(BUILD_TEX_AUX_DEPS)$(BUILD_TEX_DEPS),yes)
+%.tex-dep: %.tex
 	@{										\
 	  TEXINPUTS="$(TEXINPUTS)";		export TEXINPUTS;			\
 	  TEX_STDINCLUDES="$(TEX_STDINCLUDES)";	export TEX_STDINCLUDES;			\
 	  RESDIR="$(RESDIR)";			export RESDIR;				\
 	  SRCDIR="$(srcdir)";			export SRCDIR;				\
 	  PS_OR_PDF="$(PS_OR_PDF)";		export PS_OR_PDF;			\
-	  echo -n "$*.tex-stamp:" && "$(RESDIR)"/Dep-TeX.perl;				\
+	  echo -n "$*.tex:" && "$(RESDIR)"/Dep-TeX.perl;				\
 	} < $< > $@
+endif
 
+ifeq ($(BUILD_TEX_AUX_DEPS),yes)
+%.aux-dep: %.aux
+	@{										\
+	  STEM="$*"; export STEM;							\
+	  echo -n "$*.dvi:" && "$(RESDIR)"/Cite-TeX.perl;				\
+	  grep "makeidx" "$*.log" > /dev/null && echo " $*.ind" || echo;		\
+	} < $< > $@
+endif
+
+TEX_DEPS=$(TEX_SOURCES:.tex=.tex-dep)
+TEX_AUX_DEPS=$(TEX_SOURCES:.tex=.aux-dep)
 -include $(TEX_DEPS) $(TEX_AUX_DEPS)
 
 %.bbl: %.aux $(BIB_SOURCES)
@@ -140,19 +150,9 @@ tex-clean:
 %.ps: %.dvi
 	dvips $<
 
-.PRECIOUS: %.tex-stamp
-.PRECIOUS: %.aux
-
-%.tex-stamp: %.tex
-	@{ [ -f $*.tex-dep-enable ] && touch $@; } || { touch $*.tex-dep-enable;	\
-	  $(MAKE) $@; RETVAL=$$?; $(RM_F) $*.tex-dep-enable; exit $$RETVAL; }
-
-%.tex-stamp-bibtex:
-	@touch $@
-
 %-2x1.pdf: %.pdf
 	if which pdfjam > /dev/null; then \
-	  pdfjam --suffix 2x1 --nup '2x1' --landscape -- "$<"; \
+	  pdfjam --suffix 2x1 --nup '2x1' --landscape --outfile $@ -- "$<"; \
 	else \
 	  pdfnup $<; \
 	fi

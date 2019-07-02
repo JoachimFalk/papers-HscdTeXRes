@@ -94,7 +94,7 @@ while (<stdin>) {
       my $input = texlocate($1, "tex");
       if (defined $input) {
         if ($input =~ m/\.tex$/) {
-          print " $input $input-stamp";
+          print " $input-dep";
         } else {
           print " $input";
         }
