@@ -81,8 +81,9 @@ endif
 ifeq ($(BUILD_TEX_AUX_DEPS),yes)
 %.aux-dep: %.aux
 	@$(MKDIR_P) $(dir $@) && {							\
-	  STEM="$*"; export STEM;							\
-	  echo -n "$*.dvi:" && "$(RESDIR)"/Cite-TeX.perl;				\
+	  STEM="$*"; 				export STEM;				\
+	  PS_OR_PDF="$(PS_OR_PDF)";		export PS_OR_PDF;			\
+	  "$(RESDIR)"/Cite-TeX.perl;							\
 	  grep "makeidx" "$*.log" > /dev/null && echo " $*.ind" || echo;		\
 	} < $< > $@
 endif
