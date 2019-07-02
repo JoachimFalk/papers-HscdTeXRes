@@ -2,9 +2,10 @@
 
 SHELL=/bin/bash
 
-RM_F=rm -f
-MV_F=mv -f
-CP_F=cp -f
+RM_F ?= rm -f
+MV_F ?= mv -f
+CP_F ?= cp -f
+MKDIR_P ?= mkdir -p
 
 TEX_STDINCLUDES:=$(shell find /usr/share/texmf/tex -type d)
 OOFFICE:=$(shell which ooffice)
@@ -67,7 +68,7 @@ tex-clean:
 
 ifeq ($(BUILD_TEX_AUX_DEPS)$(BUILD_TEX_DEPS),yes)
 %.tex-dep: %.tex
-	@{										\
+	@$(MKDIR_P) $(dir $@) && {							\
 	  TEXINPUTS="$(TEXINPUTS)";		export TEXINPUTS;			\
 	  TEX_STDINCLUDES="$(TEX_STDINCLUDES)";	export TEX_STDINCLUDES;			\
 	  RESDIR="$(RESDIR)";			export RESDIR;				\
@@ -79,7 +80,7 @@ endif
 
 ifeq ($(BUILD_TEX_AUX_DEPS),yes)
 %.aux-dep: %.aux
-	@{										\
+	@$(MKDIR_P) $(dir $@) && {							\
 	  STEM="$*"; export STEM;							\
 	  echo -n "$*.dvi:" && "$(RESDIR)"/Cite-TeX.perl;				\
 	  grep "makeidx" "$*.log" > /dev/null && echo " $*.ind" || echo;		\
@@ -93,11 +94,28 @@ TEX_AUX_DEPS=$(TEX_SOURCES:.tex=.aux-dep)
 %.bbl: %.aux $(BIB_SOURCES)
 	set $(dir $^); if test x"$$1" != x; then cd $$1; fi && BIBINPUTS=`cd $$2; pwd`:"$$BIBINPUTS" bibtex $(notdir $(basename $<))
 
+%-fig.tex: %.fig
+	@$(MKDIR_P) $(dir $@) && {							\
+	  echo -e '\\begin{picture}(0,0)%' &&						\
+	  echo -e '\\includegraphics[]{$*-tex}%' &&					\
+	  echo -e '\\end{picture}%' &&							\
+	  ( cd $(dir $<) && fig2dev -L pstex_t $(notdir $<) ); } > $@
+
+%-tex.pdf: %.fig
+	@$(MKDIR_P) $(dir $@) &&							\
+	  ( cd $(dir $<) && fig2dev -L pdftex  $(notdir $<) )    > $@
+
+%-tex.ps: %.fig
+	@$(MKDIR_P) $(dir $@) &&							\
+	  ( cd $(dir $<) && fig2dev -L pstex   $(notdir $<) )    > $@
+
 %.eps: %.fig
-	( cd `dirname $<` && fig2dev -L eps `basename $<` ) > $@
+	@$(MKDIR_P) $(dir $@) && 							\
+	  ( cd $(dir $<) && fig2dev -L eps     $(notdir $<) )    > $@
 
 %.pdf: %.fig
-	( cd `dirname $<` && fig2dev -L pdf `basename $<` ) > $@
+	@$(MKDIR_P) $(dir $@) &&							\
+	  ( cd $(dir $<) && fig2dev -L pdf    $(notdir $<) )     > $@
 
 %.eps: %.odg
 	cd $(dir $<) && $(OOFFICE) --headless --convert-to eps $(notdir $<)
@@ -106,10 +124,10 @@ TEX_AUX_DEPS=$(TEX_SOURCES:.tex=.aux-dep)
 	cd $(dir $<) && $(OOFFICE) --headless --convert-to pdf $(notdir $<)
 
 %.eps: %.dot
-	dot -Tps $< > $@
+	@$(MKDIR_P) $(dir $@) && dot -Tps  $< > $@
 
 %.fig: %.dot
-	dot -Tfig $< > $@
+	@$(MKDIR_P) $(dir $@) && dot -Tfig $< > $@
 
 %.eps: %.dia
 	cd `dirname $<` && dia --nosplash --filter=eps `basename $<` --export `basename $@`
@@ -126,49 +144,30 @@ TEX_AUX_DEPS=$(TEX_SOURCES:.tex=.aux-dep)
 		echo 'set terminal postscript eps enhanced color';\
 		sed -e '/^set terminal /d' `basename $<` ) | gnuplot
 
-%-fig.tex: %.fig
-	{ [ -d `dirname $@` ] || mkdir `dirname $@`; } &&				\
-	{ echo -e '\\begin{picture}(0,0)%' &&						\
-	  echo -e '\\includegraphics[]{$*-tex}%' &&					\
-	  echo -e '\\end{picture}%' &&							\
-	  ( cd `dirname $<` && fig2dev -L pstex_t `basename $<` ); } > $*-fig.tex
-
-%-tex.pdf: %.fig
-	{ [ -d `dirname $@` ] || mkdir `dirname $@`; } &&				\
-	( cd `dirname $<` && fig2dev -L pdftex `basename $<` ) > $*-tex.pdf
-
-%-tex.ps: %.fig
-	{ [ -d `dirname $@` ] || mkdir `dirname $@`; } &&				\
-	( cd `dirname $<` && fig2dev -L pstex  `basename $<` ) > $*-tex.ps
-
 %.pdf: %.ps
-	epstopdf $< --outfile=$@
+	@$(MKDIR_P) $(dir $@) &&							\
+	  epstopdf $< --outfile=$@
 
 %.pdf: %.eps
-	epstopdf $< --outfile=$@
+	@$(MKDIR_P) $(dir $@) &&							\
+	  epstopdf $< --outfile=$@
 
 %.ps: %.dvi
-	dvips $<
+	@$(MKDIR_P) $(dir $@) &&							\
+	  dvips $< -o $@
 
 %-2x1.pdf: %.pdf
-	if which pdfjam > /dev/null; then \
-	  pdfjam --suffix 2x1 --nup '2x1' --landscape --outfile $@ -- "$<"; \
-	else \
-	  pdfnup $<; \
-	fi
+	@$(MKDIR_P) $(dir $@) &&							\
+	  pdfjam --suffix 2x1 --nup '2x1' --landscape --outfile $@ -- $<
 
 # ps & pdf to (color) png conversion
 %.png: %.ps
-	gs -r300 -sDEVICE=pngalpha -dNOPAUSE -dBATCH -sOutputFile="$*.png" "$<"
-#	gs -r600 -sDEVICE=png16m -dNOPAUSE -dBATCH -sOutputFile="$*-non-transparent.png" "$<" && \
-#	  convert -transparent white "$*-non-transparent.png" "$@"; \
-#	RETVAL=$$?; $(RM_F) "$*-non-transparent.png"; exit $$RETVAL
+	@$(MKDIR_P) $(dir $@) &&							\
+	  gs -r300 -sDEVICE=pngalpha -dNOPAUSE -dBATCH -sOutputFile="$@" "$<"
 
 %.png: %.pdf
-	gs -r300 -sDEVICE=pngalpha -dNOPAUSE -dBATCH -sOutputFile="$*.png" "$<"
-#	gs -r600 -sDEVICE=png16m -dNOPAUSE -dBATCH -sOutputFile="$*-non-transparent.png" "$<" && \
-#	  convert -transparent white "$*-non-transparent.png" "$@"; \
-#	RETVAL=$$?; $(RM_F) "$*-non-transparent.png"; exit $$RETVAL
+	@$(MKDIR_P) $(dir $@) &&							\
+	  gs -r300 -sDEVICE=pngalpha -dNOPAUSE -dBATCH -sOutputFile="$@" "$<"
 
 %.ind: %.idx
 	makeindex "$<"

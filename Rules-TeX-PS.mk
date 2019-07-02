@@ -22,11 +22,8 @@ LATEX=latex --file-line-error-style
 
 ifeq ($(BUILD_TEX_AUX_DEPS),yes)
 %.dvi: %.tex %.tex-dep %.aux-dep
-	$(MAKE) $*.aux && {								\
-	    $(MV_F) $*.idx $*.idx-old && $(CP_F) $*.idx-old $*.idx;			\
-	    $(MV_F) $*.aux $*.aux-old && $(CP_F) $*.aux-old $*.aux;			\
-	  } ||										\
-	  { $(RM_F) $*.dvi $*.aux $*.aux-old $*.idx $*.idx-old; exit 1; };		\
+	$(MV_F) $*.idx $*.idx-old && $(CP_F) $*.idx-old $*.idx;				\
+	$(MV_F) $*.aux $*.aux-old && $(CP_F) $*.aux-old $*.aux;				\
 	TEXINPUTS="$(TEXINPUTS)" $(LATEX) $< </dev/null ||				\
 	  { $(RM_F) $*.dvi $*.aux $*.aux-old $*.idx $*.idx-old; exit 1; };		\
 	diff $*.aux-old $*.aux >/dev/null && {						\
