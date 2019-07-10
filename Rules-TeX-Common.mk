@@ -24,44 +24,49 @@ tex-all: $(TEX_TARGETS)
 clean: tex-clean
 
 tex-clean:
-	@$(RM_F) $(TEX_TARGETS)
+	@$(RM_F) tex-deps.stamp tex-aux-deps.stamp \
+		$(TEX_TARGETS) \
+		$(TEX_SOURCES:.tex=.dvi) \
+		$(TEX_SOURCES:.tex=.nav) \
+		$(TEX_SOURCES:.tex=.snm) \
+		$(TEX_SOURCES:.tex=.vrb) \
+		$(TEX_SOURCES:.tex=.out) \
+		$(TEX_SOURCES:.tex=.log) \
+		$(TEX_SOURCES:.tex=.toc) \
+		$(TEX_SOURCES:.tex=.aux) \
+		$(TEX_SOURCES:.tex=.aux-old) \
+		$(TEX_SOURCES:.tex=.aux-dep) \
+		$(TEX_SOURCES:.tex=.idx) \
+		$(TEX_SOURCES:.tex=.idx-old) \
+		$(TEX_SOURCES:.tex=.bbl) \
+		$(TEX_SOURCES:.tex=.blg) \
+		$(TEX_SOURCES:.tex=.ind) \
+		$(TEX_SOURCES:.tex=.ilg)
 	@find $(TEXCLEANDIRS) \( \
 		-name "*.tex-dep" \
-	     -o	-name "*.aux-dep" -o -name "*.aux.old" \
-	     -o	-name "*.dvi" -o -name "*.out" \) -delete
-	@find $(TEXCLEANDIRS) \
-		-name "*.nav" -o -name "*.snm" -o -name "*.vrb" -o -name "*.aux" \
-	     -o	-name "*.bbl" -o -name "*.blg" -o -name "*.log" -o -name "*.idx" \
-	     -o	-name "*.ilg" -o -name "*.ind" -o -name "*.toc" -o -name "*.pdf" | \
-	  while read i; do \
-	    if $(MAKE) "$${i%.*}.tex" 2>/dev/null >/dev/null; then \
-	      $(RM_F) $$i; \
-	    fi; \
-	  done
+	  \) -delete
 	@find $(TEXCLEANDIRS) -name "*.pdf" | \
 	  while read i; do \
-	    if	$(MAKE) -n "$${i%.*}.fig" 2>/dev/null >/dev/null || \
-		$(MAKE) -n "$${i%.*}.dia" 2>/dev/null >/dev/null || \
-		$(MAKE) -n "$${i%.*}.svg" 2>/dev/null >/dev/null || \
-		$(MAKE) -n "$${i%.*}.odg" 2>/dev/null >/dev/null || \
-		$(MAKE) -n "$${i%.*}.eps" 2>/dev/null >/dev/null || \
-		$(MAKE) -n "$${i%.*}.ps" 2>/dev/null >/dev/null; then \
-	      $(RM_F) $$i; \
-	    fi; \
+	    for srcformat in eps ps; do \
+	      if test \( x"$(VPATH)" != x"" -a -f "$(VPATH)/$${i%-*}.$${srcformat}" \) \
+					    -o -f "$${i%-*}.$${srcformat}"; then \
+		$(RM_F) $$i; \
+	      fi; \
+	    done; \
 	  done
-	@find $(TEXCLEANDIRS) -name "*.ps" -o -name "*.eps" | \
+	@find $(TEXCLEANDIRS) -name "*.pdf" -o -name "*.ps" -o -name "*.eps" | \
 	  while read i; do \
-	    if	$(MAKE) -n "$${i%.*}.fig" 2>/dev/null >/dev/null || \
-		$(MAKE) -n "$${i%.*}.dia" 2>/dev/null >/dev/null || \
-		$(MAKE) -n "$${i%.*}.svg" 2>/dev/null >/dev/null || \
-		$(MAKE) -n "$${i%.*}.odg" 2>/dev/null >/dev/null || \
-		$(MAKE) -n "$${i%.*}.plt" 2>/dev/null >/dev/null; then \
-	      $(RM_F) $$i; \
-	    fi; \
+	    for srcformat in fig dia svg odg plt; do \
+	      if test \( x"$(VPATH)" != x"" -a -f "$(VPATH)/$${i%-*}.$${srcformat}" \) \
+					    -o -f "$${i%-*}.$${srcformat}"; then \
+		$(RM_F) $$i; \
+	      fi; \
+	    done; \
 	  done
-	@find $(TEXCLEANDIRS) -name "*-fig.tex" -o -name "*-tex.ps" | \
+	@find $(TEXCLEANDIRS) -name "*-fig.tex" -o -name "*-tex.pdf" -o -name "*-tex.ps" | \
 	  while read i; do \
-	    if $(MAKE) -n "$${i%-*}.fig" 2>/dev/null >/dev/null; then \
+	    if test \( x"$(VPATH)" != x"" -a -f "$(VPATH)/$${i%-*}.fig" \) \
+					  -o -f "$${i%-*}.fig"; then \
 	      $(RM_F) $$i; \
 	    fi; \
 	  done
