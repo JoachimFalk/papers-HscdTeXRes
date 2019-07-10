@@ -32,7 +32,6 @@ ifeq ($(BUILD_TEX_AUX_DEPS),yes)
 	  };										\
 	$(RM_F) $@ && $(MAKE) $@ && exit 0 || exit 1
 else
-%.dvi: %.tex
-	$(MAKE) BUILD_TEX_DEPS=yes $(TEX_DEPS)
+%.dvi: %.tex tex-aux-deps.stamp
 	$(MAKE) BUILD_TEX_AUX_DEPS=yes $@
 endif

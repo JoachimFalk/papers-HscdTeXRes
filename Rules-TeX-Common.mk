@@ -79,7 +79,7 @@ ifeq ($(BUILD_TEX_AUX_DEPS)$(BUILD_TEX_DEPS),yes)
 	  RESDIR="$(RESDIR)";			export RESDIR;				\
 	  SRCDIR="$(srcdir)";			export SRCDIR;				\
 	  PS_OR_PDF="$(PS_OR_PDF)";		export PS_OR_PDF;			\
-	  echo -n "$*.tex:" && "$(RESDIR)"/Dep-TeX.perl;				\
+	  echo -n "$*.tex $*.tex-dep:" && "$(RESDIR)"/Dep-TeX.perl;			\
 	} < $< > $@
 endif
 
@@ -95,6 +95,12 @@ endif
 
 TEX_DEPS=$(TEX_SOURCES:.tex=.tex-dep)
 TEX_AUX_DEPS=$(TEX_SOURCES:.tex=.aux-dep)
+
+tex-deps.stamp:
+	$(MAKE) BUILD_TEX_DEPS=yes $(TEX_DEPS) && touch $@
+tex-aux-deps.stamp: tex-deps.stamp
+	$(MAKE) BUILD_TEX_AUX_DEPS=yes $(TEX_AUX_DEPS) && touch $@
+
 -include $(TEX_DEPS) $(TEX_AUX_DEPS)
 
 %.bbl: %.aux $(BIB_SOURCES)
