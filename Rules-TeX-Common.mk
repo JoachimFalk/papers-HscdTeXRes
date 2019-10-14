@@ -79,7 +79,7 @@ ifeq ($(BUILD_TEX_AUX_DEPS)$(BUILD_TEX_DEPS),yes)
 	  RESDIR="$(RESDIR)";			export RESDIR;				\
 	  SRCDIR="$(srcdir)";			export SRCDIR;				\
 	  PS_OR_PDF="$(PS_OR_PDF)";		export PS_OR_PDF;			\
-	  echo -n "$*.tex $*.tex-dep:" && "$(RESDIR)"/Dep-TeX.perl;			\
+	  echo -n "tex-aux-deps.stamp $*.tex-dep: $*.tex" && "$(RESDIR)"/Dep-TeX.perl;	\
 	} < $< > $@
 endif
 
