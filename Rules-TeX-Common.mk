@@ -17,12 +17,19 @@ ifndef BIB_SOURCES
 BIB_SOURCES = literature.bib
 endif
 
+ifndef TEX_NO_ALL_TARGET
+.PHONY: all
 all: tex-all
+endif
+ifndef TEX_NO_CLEAN_TARGET
+.PHONY: clean
+clean: tex-clean
+endif
 
+.PHONY: tex-all
 tex-all: $(TEX_TARGETS)
 
-clean: tex-clean
-
+.PHONY: tex-clean
 tex-clean:
 	@$(RM_F) tex-deps.stamp tex-aux-deps.stamp \
 		$(TEX_TARGETS) \
@@ -183,5 +190,3 @@ tex-aux-deps.stamp: tex-deps.stamp
 
 %.ind: %.idx
 	makeindex "$<"
-
-.PHONY: all clean tex-all tex-clean
